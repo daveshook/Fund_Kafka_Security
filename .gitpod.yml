@@ -15,8 +15,10 @@ image:
   file: .gitpod.Dockerfile
 
 tasks:
-  - name: Pre-load docker image to workspace 
+  - name: Pre-load docker cp-serverimage to workspace 
     command: docker pull confluentinc/cp-server:7.1.1-1-ubi8
+    
+  - name: Pre-load docker zookeeper image to workspace     
     command: docker pull confluentinc/cp-zookeeper:7.1.1-1-ubi8
 
   - name: Install docker-compose version 2.4.1 
