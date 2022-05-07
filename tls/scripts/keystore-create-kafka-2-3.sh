@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd ~/tls
+cd /workspace/Fund_Kafka_Security/tls
 
 for i in kafka-2 kafka-3
 do
