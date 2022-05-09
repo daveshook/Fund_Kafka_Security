@@ -47,7 +47,15 @@ do
     -srcstorepass confluent
 
     # Save creds
-    echo "confluent" > ${i}-creds/${i}_sslkey_creds
-    echo "confluent" > ${i}-creds/${i}_keystore_creds
+ 
+    # echo "confluent" > ${i}-creds/${i}_sslkey_creds
+    # echo "confluent" > ${i}-creds/${i}_keystore_creds
+
+    sudo tee /workspace/Fund_Kafka_Security/tls/${i}-creds/${i}_sslkey_creds << EOF >/dev/null
+confluent
+EOF
+
+sudo tee /workspace/Fund_Kafka_Security/tls/${i}-creds/${i}_keystore_creds << EOF >/dev/null
+confluent
 
 done
