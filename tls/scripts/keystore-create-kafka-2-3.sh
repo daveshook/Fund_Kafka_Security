@@ -37,7 +37,7 @@ do
     -password pass:confluent
 
     # Create server keystore
-    keytool -importkeystore \
+    /home/gitpod/.sdkman/candidates/java/current/bin/keytool -importkeystore \
     -deststorepass confluent \
     -destkeystore $i-creds/kafka.$i.keystore.pkcs12 \
     -srckeystore $i-creds/$i.p12 \
@@ -47,15 +47,11 @@ do
     -srcstorepass confluent
 
     # Save creds
- 
-    # echo "confluent" > ${i}-creds/${i}_sslkey_creds
-    # echo "confluent" > ${i}-creds/${i}_keystore_creds
-
-    sudo tee /workspace/Fund_Kafka_Security/tls/${i}-creds/${i}_sslkey_creds << EOF >/dev/null
-confluent
+    sudo tee echo /workspace/Fund_Kafka_Security/tls/${i}-creds/${i}_sslkey_creds << EOF >/dev/null
+        confluent
 EOF
-
-sudo tee /workspace/Fund_Kafka_Security/tls/${i}-creds/${i}_keystore_creds << EOF >/dev/null
-confluent
+    sudo tee echo /workspace/Fund_Kafka_Security/tls/${i}-creds/${i}_keystore_creds << EOF >/dev/null
+        confluent
+EOF
 
 done
