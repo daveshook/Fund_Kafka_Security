@@ -97,11 +97,11 @@ keytool -keystore /workspace/Fund_Kafka_Security/tls/client-creds/kafka.client.t
 
     cat /workspace/Fund_Kafka_Security/tls/client-creds/client-ssl.properties
 
-    docker run --rm -it --net container:kafka-1  \
+docker run --rm -it --net container:kafka-1  \
     nicolaka/netshoot  \
         tcpdump -c 30 -X port 19092 or port 19093
 
-        kafka-console-producer \
+kafka-console-producer \
     --bootstrap-server localhost:19093 \
     --topic test-topic \
     --producer.config /workspace/Fund_Kafka_Security/tls/client-creds/client-ssl.properties
