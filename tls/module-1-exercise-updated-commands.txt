@@ -56,3 +56,52 @@ confluent
 EOF
 
 sudo /workspace/Fund_Kafka_Security/tls/scripts/keystore-create-kafka-2-3.sh
+
+Open SSL connection with the kafka-1 broker:
+
+openssl s_client -connect localhost:19093 -tls1_3 -showcerts
+
+Ctrl+C or Command+C to close the connection
+
+kafka-topics \
+    --bootstrap-server localhost:19092 \
+    --create \
+    --topic test-topic \
+    --replica-assignment 101:102:103
+
+    docker run --rm -it --net container:kafka-1  \
+    nicolaka/netshoot  \
+        tcpdump -c 40 -X port 19092 or port 19093
+
+kafka-console-producer \
+    --bootstrap-server localhost:19092 \
+    --topic test-topic
+
+At the > prompt type:
+
+PLAINTEXT_record
+
+Press Ctrl+D to exit kafka-console-producer.
+
+keytool -keystore /workspace/Fund_Kafka_Security/tls/client-creds/kafka.client.truststore.pkcs12 \
+    -alias CARoot \
+    -import \
+    -file /workspace/Fund_Kafka_Security/tls/ca.crt \
+    -storepass confluent  \
+    -noprompt \
+    -storetype PKCS12
+
+    kafka-console-producer \
+    --bootstrap-server localhost:19093 \
+    --topic test-topic
+
+    cat /workspace/Fund_Kafka_Security/tls/client-creds/client-ssl.properties
+
+    docker run --rm -it --net container:kafka-1  \
+    nicolaka/netshoot  \
+        tcpdump -c 30 -X port 19092 or port 19093
+
+        kafka-console-producer \
+    --bootstrap-server localhost:19093 \
+    --topic test-topic \
+    --producer.config /workspace/Fund_Kafka_Security/tls/client-creds/client-ssl.properties
