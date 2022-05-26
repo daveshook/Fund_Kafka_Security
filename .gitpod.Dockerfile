@@ -17,3 +17,4 @@ RUN curl -O https://packages.confluent.io/archive/${CONFLUENT_VERSION_SHORT}/con
 
 ENV PATH=/home/gitpod/.sdkman/candidates/java/current/bin:/home/gitpod/confluent-${CONFLUENT_VERSION}/bin:$PATH
 
+
