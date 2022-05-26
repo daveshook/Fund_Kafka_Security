@@ -29,26 +29,3 @@ tasks:
   # Confluent Server (broker)
   # - port: 9092
   #   onOpen: ignore
-    
-  # Confluent Server (REST)
-  # - port: 8090
-  #   onOpen: ignore
-    
-  # Schema Registry
-  # - port: 8081
-  #   onOpen: ignore
-  # - port: 8082
-  #   onOpen: ignore
-    
-  # Kafka Connect
-  # - port: 8083
-  #   onOpen: ignore
-    
-  # ksqlDB
-  # - port: 8088
-  #   onOpen: ignore
-    
-  # Confluent Control Center
-  # - port: 9021
-  #   onOpen: open-preview
-  #   visibility: public
